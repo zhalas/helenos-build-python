@@ -1,12 +1,14 @@
+ifeq ($(HELENOS_HOME),)
+$(error Variable HELENOS_HOME not set properly)
+endif
+
 CROSS=python-cross
 NATIVE=python-native
 SCRIPTS=helenos-scripts
 CONFIGURE_ARGS= ac_cv_sizeof_pid_t=4 ac_cv_have_long_long_format=yes ac_cv_func_fseeko=yes ac_cv_func_ftello=yes
-CONFIGURE_FOR_HELENOS_ARGS=--link-with-cc --run-with-env --arch-arg=--host= --base-dir=$(HELENOS_HOME)
-
-ifeq ($(HELENOS_HOME),)
-$(error Variable HELENOS_HOME not set properly)
-endif
+GCC:=$(shell $(SCRIPTS)/configure-for-helenos.sh --base-dir=/home/zheldev/HelenOS --run-with-env --  env 2>/dev/null|grep ^CC=|cut -f2- -d=)
+GCC_INC_DIR:=$(shell $(GCC) -print-file-name=include)
+CONFIGURE_FOR_HELENOS_ARGS=--link-with-cc --run-with-env --arch-arg=--host= --base-dir=$(HELENOS_HOME) --cflags="-isystem $(GCC_INC_DIR)"
 
 all: $(CROSS)/python
 
