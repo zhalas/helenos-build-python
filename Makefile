@@ -1,7 +1,7 @@
 CROSS=python-cross
 NATIVE=python-native
 SCRIPTS=helenos-scripts
-CONFIGURE_ARGS= ac_cv_sizeof_pid_t=4 ac_cv_have_long_long_format=yes
+CONFIGURE_ARGS= ac_cv_sizeof_pid_t=4 ac_cv_have_long_long_format=yes ac_cv_func_fseeko=yes ac_cv_func_ftello=yes
 CONFIGURE_FOR_HELENOS_ARGS=--link-with-cc --run-with-env --arch-arg=--host= --base-dir=$(HELENOS_HOME)
 
 ifeq ($(HELENOS_HOME),)
