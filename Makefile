@@ -13,7 +13,7 @@ CONFIGURE_FOR_HELENOS_ARGS=--link-with-cc --run-with-env --arch-arg=--host= --ba
 all: $(CROSS)/python
 
 $(CROSS)/python: $(NATIVE)/python $(CROSS)/pyconfig.h
-	$(MAKE) -C $(CROSS)
+	$(MAKE) -C $(CROSS) HOSTPGEN=../$(NATIVE)/Parser/pgen HOSTPYTHON=../$(NATIVE)/python
 	
 $(NATIVE)/python: $(NATIVE)/pyconfig.h
 	$(MAKE) -C $(NATIVE)
