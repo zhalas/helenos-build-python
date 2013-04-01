@@ -12,6 +12,8 @@ all: destdir
 
 destdir: $(CROSS)/python
 	$(MAKE) -C $(CROSS) install DESTDIR=../destdir PYTHONBUILDDIR=.
+	rm -f destdir/lib/python2.7/site.py*
+	echo -n > destdir/lib/python2.7/site.py
 
 $(CROSS)/python: $(NATIVE)/python $(CROSS)/pyconfig.h
 	$(MAKE) -C $(CROSS) HOSTPGEN=../$(NATIVE)/Parser/pgen HOSTPYTHON=../$(NATIVE)/python
