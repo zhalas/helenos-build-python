@@ -1,0 +1,9 @@
+[submodule "python-cross"]
+	path = python-cross
+	url = https://github.com/zhalas/helenos-python-2.7.3.git
+[submodule "python-native"]
+	path = python-native
+	url = https://github.com/zhalas/helenos-python-2.7.3.git
+[submodule "helenos-scripts"]
+	path = helenos-scripts
+	url = https://github.com/zhalas/helenos-scripts.git
