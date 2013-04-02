@@ -5,15 +5,17 @@ About
 -----
 This is a convenience repository making it easy to build Python for HelenOS.
 
-Usage:
-------
+Usage
+-----
 
-git clone https://github.com/zhalas/helenos-build-python.git
-cd helenos-build-python
-git submodule init
-git submodule update
-export HELENOS_HOME=/path/to/your/HelenOS/tree
-make
+To build Python for HelenOS run the following commands::
+
+        git clone https://github.com/zhalas/helenos-build-python.git
+        cd helenos-build-python
+        git submodule init
+        git submodule update
+        export HELENOS_HOME=/path/to/your/HelenOS/tree
+        make
 
 When the build finishes place the result in HelenOS initramfs.
 
